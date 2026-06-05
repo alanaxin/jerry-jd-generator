@@ -554,14 +554,9 @@ st.title("Jerry JD Generator")
 st.caption("Paste a role spec. Get a quality-checked Word doc.")
 
 with st.sidebar:
-    st.header("Settings")
     if st.button("Sign out", use_container_width=True):
         st.session_state.authenticated = False
         st.rerun()
-    st.markdown("---")
-    api_key = st.text_input("Anthropic API Key", type="password",
-                             value=os.environ.get("ANTHROPIC_API_KEY", ""),
-                             help="Starts with sk-ant-...")
     st.markdown("---")
     st.markdown("**How it works**")
     st.markdown(
@@ -570,6 +565,12 @@ with st.sidebar:
         "3. Any hard fails are automatically sent back to Claude to fix.\n"
         "4. Download the final `.docx`."
     )
+
+# Read API key from secrets (never exposed in UI)
+api_key = st.secrets.get("ANTHROPIC_API_KEY", "") or os.environ.get("ANTHROPIC_API_KEY", "")
+if not api_key:
+    st.error("ANTHROPIC_API_KEY is not configured. Contact your admin.")
+    st.stop()
 
 job_title = st.text_input("Job title", placeholder="e.g. Senior PM, DriveShield")
 role_spec  = st.text_area("Role spec", height=280,
