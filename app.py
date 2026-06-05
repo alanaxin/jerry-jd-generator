@@ -6,34 +6,10 @@ import json
 import re
 import subprocess
 import sys
-import requests
 from docx import Document
 from docx.shared import Pt, Inches
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
-
-# ── Google Doc fetching ────────────────────────────────────────────────────────
-
-def is_google_doc_url(text: str) -> bool:
-    return bool(re.search(r'docs\.google\.com/document/d/', text.strip()))
-
-def fetch_google_doc(url: str) -> tuple[str, str | None]:
-    """Fetch plain text from a Google Doc. Returns (text, error)."""
-    match = re.search(r'/document/d/([a-zA-Z0-9-_]+)', url)
-    if not match:
-        return "", "Could not extract document ID from the URL."
-    doc_id = match.group(1)
-    export_url = f"https://docs.google.com/document/d/{doc_id}/export?format=txt"
-    try:
-        r = requests.get(export_url, timeout=15)
-        if r.status_code == 200:
-            return r.text.strip(), None
-        elif r.status_code == 403:
-            return "", "Could not access the document. Make sure it is set to 'Anyone with the link can view'."
-        else:
-            return "", f"Failed to fetch document (HTTP {r.status_code})."
-    except Exception as e:
-        return "", f"Error fetching document: {e}"
 
 # ── Authentication ─────────────────────────────────────────────────────────────
 
@@ -596,20 +572,8 @@ with st.sidebar:
     )
 
 job_title = st.text_input("Job title", placeholder="e.g. Senior PM, DriveShield")
-role_spec_input = st.text_area("Role spec", height=200,
-    placeholder="Paste the role spec text here, or paste a Google Doc link (must be set to 'Anyone with the link can view').")
-
-# Resolve Google Doc URL if detected
-role_spec = role_spec_input.strip()
-if role_spec and is_google_doc_url(role_spec):
-    with st.spinner("Fetching Google Doc…"):
-        fetched, err = fetch_google_doc(role_spec)
-    if err:
-        st.error(f"Google Doc error: {err}")
-        role_spec = ""
-    else:
-        st.success(f"Google Doc fetched ({len(fetched):,} characters)")
-        role_spec = fetched
+role_spec  = st.text_area("Role spec", height=280,
+    placeholder="Paste the full role spec here. Claude will not invent facts — it only uses what you give it.")
 
 run = st.button("Generate JD", disabled=not (api_key and job_title and role_spec))
 
