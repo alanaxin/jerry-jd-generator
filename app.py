@@ -261,6 +261,16 @@ Banned: "insurance companies prioritize profit over the customer"
 
 ---
 
+## Additional rules (27–29)
+
+27. **Bold label brevity — Sections 2 and 4.** Every bold label in Section 2 (Radical Honesty) and Section 4 (Archetype) must be as short as possible — target 2–4 words maximum. Cut every word that doesn't do essential work. Test each label: can you remove any word and keep the meaning? If yes, remove it. Examples of what to cut: "The playbook doesn't exist yet" → "No playbook." "Thick-skinned and patient" → "Thick-skinned." "A chameleon by instinct" → "A Chameleon." Filler qualifiers like "by instinct", "at heart", "in nature", "yet", "by default" attached to a label are always cuttable. The label is a signal, not a sentence.
+
+28. **No descriptive sub-headings within phases.** When Section 3 uses Phase 1 / Phase 2 structure, do NOT add a second descriptive label inside the phase (e.g. "Reddit (Days 1–90)" or "Expanding Channel Presence"). The phase label alone is the heading. Go directly from "**Phase 1:**" into the content. A phase label plus a sub-label is always redundant — the sub-label restates what the phase summary already says.
+
+29. **Hook paragraph transitions must be explicit.** When the Hook moves from one topic to another — e.g. from company context to the specific problem this role addresses — there must be a bridging sentence or clause that makes the logical connection explicit. Never place two unconnected ideas in adjacent paragraphs. The reader should always be able to answer: "why does this paragraph follow that one?"
+
+---
+
 ## Manual audit pass (do this before outputting)
 
 **Rules 21 + 26:** For every Radical Honesty bullet, answer both: (a) Could a mediocre competitor honestly say this? If yes → cut or rewrite. (b) Would a real wrong-fit candidate think "that's not for me"? If no → cut or move to ownership.
@@ -268,6 +278,12 @@ Banned: "insurance companies prioritize profit over the customer"
 **Rule 25:** Read all bullets in each section together. Does any bullet make the same point as another? If yes → collapse.
 
 **Rule 23:** For every specific claim — tools named, scope described, team size — verify against the role spec. If not in the spec, omit it.
+
+**Rule 27:** Read every bold label in Sections 2 and 4. Is any label longer than 4 words? If yes, cut it down.
+
+**Rule 28:** If Phase 1 / Phase 2 structure is used, check that no descriptive sub-heading appears within the phase. If one exists, delete it.
+
+**Rule 29:** Read each paragraph transition in the Hook. Is the logical connection between paragraphs explicit? If not, add a bridging sentence.
 
 **Rules 1–20, 22, 24:** Check mechanically. Fix every violation."""
 

@@ -253,6 +253,23 @@ def lint(path):
                 "text": ln.strip(),
                 "note": "'from day one' filler (#9)."})
 
+        # ---- Rule 27: bold label brevity (Sections 2 & 4) ----
+        lbl27 = bold_label(ln)
+        if lbl27 is not None:
+            word_count = len(lbl27.split())
+            if word_count > 4:
+                findings.append({"rule": 27, "severity": "flag", "line": idx,
+                    "text": lbl27,
+                    "note": f"Bold label is {word_count} words — target ≤4. Cut every non-essential word (#27)."})
+
+        # ---- Rule 28: no descriptive sub-heading within a phase ----
+        # Flags patterns like "Reddit (Days 1-90)" or "Expanding Channel Presence"
+        # appearing as a bold-only bullet or heading immediately after Phase 1/2 content.
+        if is_heading(ln) and re.search(r'\bdays?\s+\d', low):
+            findings.append({"rule": 28, "severity": "fail", "line": idx,
+                "text": ln.strip(),
+                "note": "Descriptive temporal sub-heading inside a phase (e.g. 'Reddit (Days 1–90)'). Delete it — the phase label is sufficient (#28)."})
+
     summary = {
         "fail": sum(1 for f in findings if f["severity"] == "fail"),
         "flag": sum(1 for f in findings if f["severity"] == "flag"),
