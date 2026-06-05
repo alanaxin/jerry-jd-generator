@@ -191,11 +191,10 @@ Every Jerry JD has exactly these 5 sections. Section headings can vary — the c
 - No generic "we're a fast-growing startup" filler.
 - Length: 2–4 tight paragraphs. Senior/exec roles can go longer; coordinator/specialist roles should be shorter.
 
-Jerry's standard context sentence (use or adapt — always use broader framing per Rule 30):
-"Your car and your home are your most important assets, yet the experience of owning them is stuck in the 90s. At Jerry.ai, we are building the first app to manage it all."
+Jerry's standard context (use or adapt — always use broader framing per Rule 30):
+"Your car and your home are your most important assets, yet the experience of owning one is stuck in the 90s. Every part of the journey (buy/sell, insurance, maintenance/repairs, etc) is fragmented, complicated, and expensive.
 
-Jerry's traction (use current numbers or ask user):
-"Since launching in 2019, we've reached 5M+ customers, raised $240M+, scaled revenue 70X, and became profitable in early 2024."
+Jerry.ai is building the first app to manage it all. We started with your car ($2T market in the U.S.), launched car insurance in 2019, then driving insights, diagnostics, and a repair marketplace. Since then, we've reached 5M+ customers, raised $240M+, scaled revenue 70X, and became profitable in early 2024."
 
 ### Section 2 — Radical Honesty
 
