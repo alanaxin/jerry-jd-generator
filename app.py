@@ -13,15 +13,32 @@ from docx.oxml import OxmlElement
 
 # ── Authentication ─────────────────────────────────────────────────────────────
 
+JERRY_PINK = "#ff3975"
+
+LOGIN_CSS = """
+<style>
+#MainMenu, footer, header {visibility: hidden;}
+.login-wrap {max-width: 400px; margin: 80px auto 0;}
+.login-logo {font-size: 1.6rem; font-weight: 800; color: #ff3975; letter-spacing: -0.5px; margin-bottom: 0.2rem;}
+.login-sub  {color: #888; font-size: 0.9rem; margin-bottom: 1.5rem;}
+div[data-testid="stButton"] > button {
+    background: #ff3975 !important; color: #fff !important;
+    border: none !important; border-radius: 8px !important;
+    font-weight: 600 !important; padding: 0.55rem 1.5rem !important;
+}
+div[data-testid="stButton"] > button:hover {background: #e02d62 !important;}
+</style>
+"""
+
 def check_login():
     if st.session_state.get("authenticated"):
         return True
-    st.set_page_config(page_title="Jerry JD Generator — Login", layout="centered")
-    st.markdown("<style>#MainMenu,footer,header{visibility:hidden;}</style>", unsafe_allow_html=True)
-    st.title("Jerry JD Generator")
-    st.caption("Internal tool — Jerry recruiting team only.")
-    st.markdown("---")
-    pwd = st.text_input("Password", type="password")
+    st.set_page_config(page_title="Jerry JD Generator", layout="centered")
+    st.markdown(LOGIN_CSS, unsafe_allow_html=True)
+    st.markdown('<div class="login-wrap">', unsafe_allow_html=True)
+    st.markdown('<div class="login-logo">Jerry JD Generator</div>', unsafe_allow_html=True)
+    st.markdown('<div class="login-sub">Internal tool · Jerry recruiting team only</div>', unsafe_allow_html=True)
+    pwd = st.text_input("Password", type="password", placeholder="Enter team password")
     if st.button("Sign in", use_container_width=True):
         correct = st.secrets.get("APP_PASSWORD", "")
         if correct and pwd == correct:
@@ -29,6 +46,7 @@ def check_login():
             st.rerun()
         else:
             st.error("Incorrect password.")
+    st.markdown('</div>', unsafe_allow_html=True)
     return False
 
 if not check_login():
@@ -540,31 +558,95 @@ def fix_fails(client, role_spec, job_title, jd_text, linter_report):
 # ── Streamlit UI ──────────────────────────────────────────────────────────────
 
 st.set_page_config(page_title="Jerry JD Generator", layout="wide")
-st.markdown("""
+st.markdown(f"""
 <style>
-.stButton>button{background:#000;color:#fff;border-radius:6px;padding:.5rem 1.5rem;font-weight:600;}
-.stButton>button:hover{background:#333;}
-.report-box{background:#f8f8f8;border:1px solid #ddd;border-radius:6px;padding:1rem;
-            font-family:monospace;font-size:.82rem;white-space:pre-wrap;
-            max-height:460px;overflow-y:auto;}
+#MainMenu, footer, header {{visibility: hidden;}}
+
+/* Buttons */
+div[data-testid="stButton"] > button {{
+    background: {JERRY_PINK} !important; color: #fff !important;
+    border: none !important; border-radius: 8px !important;
+    font-weight: 600 !important; padding: 0.55rem 1.5rem !important;
+    transition: background 0.15s;
+}}
+div[data-testid="stButton"] > button:hover {{ background: #e02d62 !important; }}
+div[data-testid="stButton"] > button:disabled {{ background: #f0f0f0 !important; color: #aaa !important; }}
+
+/* Sign out button — secondary style */
+section[data-testid="stSidebar"] div[data-testid="stButton"] > button {{
+    background: transparent !important; color: #ff3975 !important;
+    border: 1.5px solid #ff3975 !important; border-radius: 8px !important;
+}}
+section[data-testid="stSidebar"] div[data-testid="stButton"] > button:hover {{
+    background: #fff0f3 !important;
+}}
+
+/* Download button */
+div[data-testid="stDownloadButton"] > button {{
+    background: {JERRY_PINK} !important; color: #fff !important;
+    border: none !important; border-radius: 8px !important;
+    font-weight: 600 !important; padding: 0.55rem 1.5rem !important;
+}}
+
+/* Inputs */
+div[data-testid="stTextInput"] input, div[data-testid="stTextArea"] textarea {{
+    border-radius: 8px !important; border: 1.5px solid #e0e0e0 !important;
+}}
+div[data-testid="stTextInput"] input:focus, div[data-testid="stTextArea"] textarea:focus {{
+    border-color: {JERRY_PINK} !important; box-shadow: 0 0 0 2px #ff397520 !important;
+}}
+
+/* Audit report box */
+.report-box {{
+    background: #fafafa; border: 1px solid #ebebeb; border-radius: 10px;
+    padding: 1.1rem; font-family: monospace; font-size: .82rem;
+    white-space: pre-wrap; max-height: 480px; overflow-y: auto;
+    line-height: 1.55;
+}}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {{ background: #fff; border-right: 1px solid #f0f0f0; }}
+
+.how-step {{
+    display: flex; gap: 0.75rem; align-items: flex-start;
+    margin-bottom: 0.9rem;
+}}
+.how-num {{
+    background: {JERRY_PINK}18; color: {JERRY_PINK};
+    font-weight: 700; font-size: 0.75rem; border-radius: 50%;
+    min-width: 22px; height: 22px; display: flex;
+    align-items: center; justify-content: center; margin-top: 1px;
+}}
+.how-text {{ font-size: 0.85rem; color: #444; line-height: 1.4; }}
+.how-text strong {{ color: #111; }}
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Jerry JD Generator")
-st.caption("Paste a role spec. Get a quality-checked Word doc.")
+# Header
+st.markdown(f'<h1 style="color:#111;font-size:1.9rem;font-weight:800;margin-bottom:0;">Jerry JD Generator</h1>', unsafe_allow_html=True)
+st.markdown('<p style="color:#888;margin-top:0.2rem;margin-bottom:1.5rem;font-size:0.95rem;">Paste a role spec. Get a quality-checked Word doc in seconds.</p>', unsafe_allow_html=True)
 
 with st.sidebar:
+    st.markdown(f'<p style="font-size:1.1rem;font-weight:700;color:{JERRY_PINK};margin-bottom:0.2rem;">Jerry JD Generator</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:0.78rem;color:#aaa;margin-top:0;margin-bottom:1rem;">Internal tool · Recruiting team only</p>', unsafe_allow_html=True)
     if st.button("Sign out", use_container_width=True):
         st.session_state.authenticated = False
         st.rerun()
-    st.markdown("---")
-    st.markdown("**How it works**")
-    st.markdown(
-        "1. Claude generates the JD and audits it against all 26 Hard Rules.\n"
-        "2. The deterministic Python linter checks 14 mechanical rules.\n"
-        "3. Any hard fails are automatically sent back to Claude to fix.\n"
-        "4. Download the final `.docx`."
-    )
+    st.markdown('<hr style="border:none;border-top:1px solid #f0f0f0;margin:1.2rem 0;">', unsafe_allow_html=True)
+    st.markdown(f'<p style="font-weight:700;font-size:0.85rem;color:#111;margin-bottom:0.8rem;">How it works</p>', unsafe_allow_html=True)
+    steps = [
+        ("Paste the role spec", "Any format works — bullet notes, a full brief, or a pasted Google Doc. Claude only uses what you give it."),
+        ("Claude writes and self-audits", "A full JD draft is generated, then checked against all 26 Hard Rules — tone, structure, legal compliance, and confidentiality."),
+        ("The linter runs deterministically", "14 mechanical rules are checked in Python: banned phrases, X-not-Y constructions, year ranges, nested bullets, quoted archetype labels."),
+        ("Fails are auto-fixed", "Any hard violations go back to Claude for a correction pass. The linter re-runs until the output is clean."),
+        ("Download your .docx", "The final file comes with a full audit report — what was caught, what was changed, and the linter summary."),
+    ]
+    for i, (title, body) in enumerate(steps, 1):
+        st.markdown(f'''
+        <div class="how-step">
+            <div class="how-num">{i}</div>
+            <div class="how-text"><strong>{title}</strong><br>{body}</div>
+        </div>''', unsafe_allow_html=True)
 
 # Read API key from secrets (never exposed in UI)
 api_key = st.secrets.get("ANTHROPIC_API_KEY", "") or os.environ.get("ANTHROPIC_API_KEY", "")
