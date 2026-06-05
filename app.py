@@ -652,10 +652,10 @@ with st.sidebar:
     st.markdown('<hr style="border:none;border-top:1px solid #f0f0f0;margin:1.2rem 0;">', unsafe_allow_html=True)
     st.markdown(f'<p style="font-weight:700;font-size:0.85rem;color:#111;margin-bottom:0.8rem;">How it works</p>', unsafe_allow_html=True)
     steps = [
-        ("Paste the role spec", "Any format works — bullet notes, a full brief, or a pasted Google Doc. Claude only uses what you give it."),
-        ("Claude writes and self-audits", "A full JD draft is generated, then checked against all 26 Hard Rules — tone, structure, legal compliance, and confidentiality."),
-        ("The linter runs deterministically", "14 mechanical rules are checked in Python: banned phrases, X-not-Y constructions, year ranges, nested bullets, quoted archetype labels."),
-        ("Fails are auto-fixed", "Any hard violations go back to Claude for a correction pass. The linter re-runs until the output is clean."),
+        ("Copy and paste the role spec", "Copy the full text from your role spec and paste it here. Do not paste a link — Claude cannot access external URLs. The more detail you give, the better the output."),
+        ("Claude writes and self-audits", "A full JD is drafted following Jerry's 30 Hard Rules — broader asset framing in the hook, explicit transitions, short bold labels, no redundant phase headings, correct tone, structure, legal compliance, and confidentiality."),
+        ("The linter runs deterministically", "16 mechanical rules are checked in Python: banned phrases, X-not-Y constructions, year ranges, nested bullets, quoted archetype labels, verbose bold labels, and temporal sub-headings inside phases."),
+        ("Fails are auto-fixed", "Any hard violations go back to Claude for a correction pass. The linter re-runs to confirm the output is clean."),
         ("Download your .docx", "The final file comes with a full audit report — what was caught, what was changed, and the linter summary."),
     ]
     for i, (title, body) in enumerate(steps, 1):
@@ -672,8 +672,8 @@ if not api_key:
     st.stop()
 
 job_title = st.text_input("Job title", placeholder="e.g. Senior PM, DriveShield")
-role_spec  = st.text_area("Role spec", height=280,
-    placeholder="Paste the full role spec here. Claude will not invent facts — it only uses what you give it.")
+role_spec  = st.text_area("Role spec — paste full text", height=280,
+    placeholder="Copy and paste the full text from your role spec here. Do not paste a link — Claude cannot access external URLs. Claude will not invent facts; it only uses what you give it.")
 
 run = st.button("Generate JD", disabled=not (api_key and job_title and role_spec))
 
