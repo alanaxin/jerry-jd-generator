@@ -640,8 +640,8 @@ section[data-testid="stSidebar"] {{ background: #fff; border-right: 1px solid #f
 """, unsafe_allow_html=True)
 
 # Header
-st.markdown(f'<h1 style="color:{JERRY_PINK};font-size:1.9rem;font-weight:800;margin-bottom:0;">Jerry JD Generator</h1>', unsafe_allow_html=True)
-st.markdown('<p style="color:#888;margin-top:0.2rem;margin-bottom:1.5rem;font-size:0.95rem;">Paste a role spec. Get a quality-checked Word doc in seconds.</p>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:{JERRY_PINK};font-size:1.9rem;font-weight:800;margin-bottom:0;">Jerry JD Generator ✍️</h1>', unsafe_allow_html=True)
+st.markdown('<p style="color:#888;margin-top:0.2rem;margin-bottom:1.5rem;font-size:0.95rem;">Paste your role spec. Get an Alana-approved JD in seconds.</p>', unsafe_allow_html=True)
 
 with st.sidebar:
     st.markdown(f'<p style="font-size:1.1rem;font-weight:700;color:{JERRY_PINK};margin-bottom:0.2rem;">Jerry JD Generator</p>', unsafe_allow_html=True)
