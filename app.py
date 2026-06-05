@@ -191,8 +191,8 @@ Every Jerry JD has exactly these 5 sections. Section headings can vary — the c
 - No generic "we're a fast-growing startup" filler.
 - Length: 2–4 tight paragraphs. Senior/exec roles can go longer; coordinator/specialist roles should be shorter.
 
-Jerry's standard context sentence (use or adapt):
-"More than 80% of Americans own a car and see it as a fundamental necessity, yet the experience of owning one is stuck in the 90s. At Jerry.ai, we are building the first app to manage it all."
+Jerry's standard context sentence (use or adapt — always use broader framing per Rule 30):
+"Your car and your home are your most important assets, yet the experience of owning them is stuck in the 90s. At Jerry.ai, we are building the first app to manage it all."
 
 Jerry's traction (use current numbers or ask user):
 "Since launching in 2019, we've reached 5M+ customers, raised $240M+, scaled revenue 70X, and became profitable in early 2024."
@@ -269,6 +269,8 @@ Banned: "insurance companies prioritize profit over the customer"
 
 29. **Hook paragraph transitions must be explicit.** When the Hook moves from one topic to another — e.g. from company context to the specific problem this role addresses — there must be a bridging sentence or clause that makes the logical connection explicit. Never place two unconnected ideas in adjacent paragraphs. The reader should always be able to answer: "why does this paragraph follow that one?"
 
+30. **Always use broader asset framing in the Hook — but make the transition logical.** Never open with car-only framing. Jerry's mission is now to manage all physical assets (car, home, motorcycle, etc.), so the Hook must always open from that broader vantage point: "Your car and your home are your most important assets..." or "Jerry.ai is building the first app to manage all your physical assets..." Do NOT use "More than 80% of Americans own a car..." as the opening. However, the broader framing must then transition logically to the specific problem this role addresses. For a car insurance role, you zoom in: open broadly → connect to the insurance product → name the specific problem. For an expansion role, the broader framing connects directly. The test: a recruiter should never feel whiplash reading the Hook. Each paragraph must follow from the one before it.
+
 ---
 
 ## Manual audit pass (do this before outputting)
@@ -283,7 +285,7 @@ Banned: "insurance companies prioritize profit over the customer"
 
 **Rule 28:** If Phase 1 / Phase 2 structure is used, check that no descriptive sub-heading appears within the phase. If one exists, delete it.
 
-**Rule 29:** Read each paragraph transition in the Hook. Is the logical connection between paragraphs explicit? If not, add a bridging sentence.
+**Rules 29 + 30:** Read the Hook. (a) Is every paragraph transition explicit — does each paragraph follow logically from the one before? (b) Does the Hook open with broader asset framing (car + home, or all physical assets) rather than car-only? If either fails, rewrite.
 
 **Rules 1–20, 22, 24:** Check mechanically. Fix every violation."""
 
