@@ -161,6 +161,8 @@ These are non-negotiable. Each was established from real editorial feedback. Num
 
    Note: structural facts can pass this test if they carry real friction. "You are inheriting a developing function" passes — it filters out candidates who want a mature, well-oiled team. "You will manage a small team of two" passes — it filters out candidates who want scale. "You report to the Controller" fails — it informs but disqualifies nobody. The test is not whether a bullet describes structure; it's whether that specific fact would cause a real wrong-fit candidate to self-select out.
 
+   **Friction bullets describe the role — never the reader.** A bullet creates friction by stating a real constraint, tradeoff, or unglamorous fact about the work. It does not do so by implying that the reader might lack capability, hide, rely on others, or otherwise exhibit bad traits. Condescending conditional frames are banned: "if you need someone to X", "no hiding behind Y", "if you can't handle Z". Rewrite the same constraint from the role's perspective, not the candidate's deficiency. Examples: "If you need someone to scope your work for you, this won't fit" → "The scope is yours to define." "No hiding behind a large team" → "You are the team."
+
 ---
 
 ## The 5-Section Structure (mandatory, fixed order)
@@ -274,7 +276,7 @@ Banned: "insurance companies prioritize profit over the customer"
 
 ## Manual audit pass (do this before outputting)
 
-**Rules 21 + 26:** For every Radical Honesty bullet, answer both: (a) Could a mediocre competitor honestly say this? If yes → cut or rewrite. (b) Would a real wrong-fit candidate think "that's not for me"? If no → cut or move to ownership.
+**Rules 21 + 26:** For every Radical Honesty bullet, answer all three: (a) Could a mediocre competitor honestly say this? If yes → cut or rewrite. (b) Would a real wrong-fit candidate think "that's not for me"? If no → cut or move to ownership. (c) Does this bullet describe the role, or does it imply the reader might be weak, lazy, or incompetent? If the latter → rewrite from the role's perspective, not the candidate's deficiency.
 
 **Rule 25:** Read all bullets in each section together. Does any bullet make the same point as another? If yes → collapse.
 
@@ -489,11 +491,20 @@ def md_to_docx(md_text: str, output_path: str):
     for line in md_text.strip().splitlines():
         s = line.strip()
         if s.startswith("# "):
-            p = doc.add_heading(s[2:].strip(), level=1)
-            for r in p.runs: r.font.name = "Arial"
+            p = doc.add_paragraph()
+            run = p.add_run(s[2:].strip())
+            run.bold = True
+            run.font.name = "Arial"
+            run.font.size = Pt(16)
+            p.paragraph_format.space_after = Pt(6)
         elif s.startswith("## "):
-            p = doc.add_heading(s[3:].strip(), level=2)
-            for r in p.runs: r.font.name = "Arial"
+            p = doc.add_paragraph()
+            run = p.add_run(s[3:].strip())
+            run.bold = True
+            run.font.name = "Arial"
+            run.font.size = Pt(13)
+            p.paragraph_format.space_before = Pt(10)
+            p.paragraph_format.space_after = Pt(4)
         elif s.startswith("- ") or s.startswith("* "):
             p = doc.add_paragraph(style="List Bullet")
             add_runs(p, s[2:].strip())
@@ -656,7 +667,7 @@ with st.sidebar:
         ("Claude writes and self-audits", "A full JD is drafted following Jerry's 30 Hard Rules — broader asset framing in the hook, explicit transitions, short bold labels, no redundant phase headings, correct tone, structure, legal compliance, and confidentiality."),
         ("The linter runs deterministically", "16 mechanical rules are checked in Python: banned phrases, X-not-Y constructions, year ranges, nested bullets, quoted archetype labels, verbose bold labels, and temporal sub-headings inside phases."),
         ("Fails are auto-fixed", "Any hard violations go back to Claude for a correction pass. The linter re-runs to confirm the output is clean."),
-        ("Download your .docx", "The final file comes with a full audit report — what was caught, what was changed, and the linter summary."),
+        ("Download and upload your .docx", f'The final file comes with a full audit report — what was caught, what was changed, and the linter summary. Once downloaded, upload it to the shared <a href="https://drive.google.com/drive/u/0/folders/19Bc6ekMiItQwMQKasjeS0bkuKCvAagxf" target="_blank" style="color:{JERRY_PINK};font-weight:600;">recruiting folder</a> on Google Drive.'),
     ]
     for i, (title, body) in enumerate(steps, 1):
         st.markdown(f'''
@@ -723,6 +734,14 @@ if run:
         st.download_button("⬇ Download .docx", data=docx_bytes,
             file_name=f"{safe}.docx",
             mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+
+        st.markdown(
+            f'<p style="font-size:0.85rem;color:#555;margin-top:0.5rem;">'
+            f'📁 Once downloaded, upload your JD to the shared '
+            f'<a href="https://drive.google.com/drive/u/0/folders/19Bc6ekMiItQwMQKasjeS0bkuKCvAagxf" '
+            f'target="_blank" style="color:{JERRY_PINK};font-weight:600;">recruiting folder</a> on Google Drive.'
+            f'</p>',
+            unsafe_allow_html=True)
 
         with st.expander("JD preview", expanded=True):
             st.markdown(jd_text)
