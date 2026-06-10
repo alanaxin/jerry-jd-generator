@@ -93,7 +93,7 @@ These are non-negotiable. Each was established from real editorial feedback. Num
 
 **Prose constructions (banned in all forms):**
 
-1. **No "X, not Y" / antithesis / punchy-reversal.** Any two clauses mirrored for rhythm where the second mainly completes a beat. Banned even when it reads well. Examples to never write: "compliance is the whole point, not a footnote"; "the risk stops growing and starts shrinking"; "make this worse, not better"; "high autonomy, high trust, low context". State the point once, directly.
+1. **No "X, not Y" / antithesis / punchy-reversal.** Any two clauses mirrored for rhythm where the second mainly completes a beat. Banned even when it reads well. This ban applies to all constructions — full sentences, labels, headers, compound descriptors, and hyphenated modifiers. Examples to never write: "compliance is the whole point, not a footnote"; "the risk stops growing and starts shrinking"; "make this worse, not better"; "high autonomy, high trust, low context"; "hands-on, not hands-off"; "builder, not a manager". State the point once, directly.
 
 2. **No restatement / cadence-over-content.** Don't repeat a verb or structure for rhythm ("we grew fast and we grew everywhere"; the triple "its own X, its own Y, its own Z"). If parallel structure is doing work the words don't earn, cut it. This applies across sentences and across bullets too — if a bold bullet label and the bullet body make the same point, one of them goes. If two consecutive bullets describe the same reality in different words, collapse them.
 
@@ -162,6 +162,8 @@ These are non-negotiable. Each was established from real editorial feedback. Num
    Note: structural facts can pass this test if they carry real friction. "You are inheriting a developing function" passes — it filters out candidates who want a mature, well-oiled team. "You will manage a small team of two" passes — it filters out candidates who want scale. "You report to the Controller" fails — it informs but disqualifies nobody. The test is not whether a bullet describes structure; it's whether that specific fact would cause a real wrong-fit candidate to self-select out.
 
    **Friction bullets describe the role — never the reader.** A bullet creates friction by stating a real constraint, tradeoff, or unglamorous fact about the work. It does not do so by implying that the reader might lack capability, hide, rely on others, or otherwise exhibit bad traits. Condescending conditional frames are banned: "if you need someone to X", "no hiding behind Y", "if you can't handle Z". Rewrite the same constraint from the role's perspective, not the candidate's deficiency. Examples: "If you need someone to scope your work for you, this won't fit" → "The scope is yours to define." "No hiding behind a large team" → "You are the team."
+
+   **Negative self-selection statements must add new information.** If the role description already states a constraint honestly — e.g. "you are building the frameworks from scratch", "the creative output is yours" — do not follow it with a negative or conditional version of the same point — e.g. "if you need established processes, this will frustrate you", "if you want to direct from a distance, this is the wrong seat". The honest positive already does the self-selection work. A negative that follows it is restatement, not clarification, and must be cut.
 
 ---
 
