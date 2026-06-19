@@ -189,16 +189,28 @@ Every Jerry JD has exactly these 5 sections. Section headings can vary — the c
 
 ### Section 1 — The Hook
 
-- Open with the macro context: car ownership affects 80%+ of Americans, yet it's fragmented and expensive.
-- Then zoom into the specific problem this role solves or opportunity it unlocks.
-- End with: if you succeed at this, here's what changes for Jerry and its customers.
+**Two valid structures — choose using the decision test below.**
+
+**Decision test (run this first):** Does a candidate need to understand this team or function before they can understand why this role exists? If yes → Option B. If the role is self-explanatory and the role-specific content fits in one tight paragraph → Option A.
+
+**Option A — Single section** (heading e.g. "The Opportunity", "The Challenge", "Why We Need You"):
+The fixed boilerplate is paragraphs 1 and 2. Role-specific content follows in the same section: connect Jerry's mission to the specific gap this role fills and why it matters now.
+
+**Option B — Two sections** ("Why We Exist" + "Why We're Hiring"):
+- **"Why We Exist"** contains only the fixed boilerplate — exactly two paragraphs, nothing added or changed.
+- **"Why We're Hiring"** contains the role-specific content: what the team or function does, what gap this hire fills, and why it matters now.
+
+**Fixed boilerplate — verbatim, every JD, never rewritten or paraphrased:**
+
+Paragraph 1: "Your car and your home are your most important assets, yet the experience of owning them is stuck in the 90s. Every part of the journey - insurance, repairs, financing, maintenance - is fragmented, complicated, and expensive. Jerry.ai is building the first app to manage it all."
+
+Paragraph 2: "We started with car insurance in 2019, became one of the top three brokers in the country, then added driving insights, diagnostics, and a repair marketplace. We've reached 5M+ customers, raised $240M+, scaled revenue 70X, and became profitable in early 2024."
+
+**Role-specific content (what follows the boilerplate in Option A, or fills "Why We're Hiring" in Option B):**
+- Connect Jerry's mission and trajectory to the specific problem or opportunity this role addresses.
+- Name what's at stake: if this person succeeds, what changes for Jerry and its customers?
 - No generic "we're a fast-growing startup" filler.
-- Length: 2–4 tight paragraphs. Senior/exec roles can go longer; coordinator/specialist roles should be shorter.
-
-Jerry's standard context (use or adapt — always use broader framing per Rule 30):
-"Your car and your home are your most important assets, yet the experience of owning one is stuck in the 90s. Every part of the journey (buy/sell, insurance, maintenance/repairs, etc) is fragmented, complicated, and expensive.
-
-Jerry.ai is building the first app to manage it all. We started with your car ($2T market in the U.S.), launched car insurance in 2019, then driving insights, diagnostics, and a repair marketplace. Since then, we've reached 5M+ customers, raised $240M+, scaled revenue 70X, and became profitable in early 2024."
+- Length: 2–4 tight paragraphs total. Senior/exec roles can go longer; coordinator/specialist roles should be shorter.
 
 ### Section 2 — Radical Honesty
 
@@ -272,7 +284,13 @@ Banned: "insurance companies prioritize profit over the customer"
 
 29. **Hook paragraph transitions must be explicit.** When the Hook moves from one topic to another — e.g. from company context to the specific problem this role addresses — there must be a bridging sentence or clause that makes the logical connection explicit. Never place two unconnected ideas in adjacent paragraphs. The reader should always be able to answer: "why does this paragraph follow that one?"
 
-30. **Always use broader asset framing in the Hook — but make the transition logical.** Never open with car-only framing. Jerry's mission is now to manage all physical assets (car, home, motorcycle, etc.), so the Hook must always open from that broader vantage point: "Your car and your home are your most important assets..." or "Jerry.ai is building the first app to manage all your physical assets..." Do NOT use "More than 80% of Americans own a car..." as the opening. However, the broader framing must then transition logically to the specific problem this role addresses. For a car insurance role, you zoom in: open broadly → connect to the insurance product → name the specific problem. For an expansion role, the broader framing connects directly. The test: a recruiter should never feel whiplash reading the Hook. Each paragraph must follow from the one before it.
+30. **The hook boilerplate is fixed — never rewrite it, and choose the right structure.** The first two paragraphs of every JD hook are verbatim and immutable. They must appear exactly as follows, in every JD, without any paraphrasing or adaptation:
+
+Paragraph 1: "Your car and your home are your most important assets, yet the experience of owning them is stuck in the 90s. Every part of the journey - insurance, repairs, financing, maintenance - is fragmented, complicated, and expensive. Jerry.ai is building the first app to manage it all."
+
+Paragraph 2: "We started with car insurance in 2019, became one of the top three brokers in the country, then added driving insights, diagnostics, and a repair marketplace. We've reached 5M+ customers, raised $240M+, scaled revenue 70X, and became profitable in early 2024."
+
+Structure is determined by the decision test: does a candidate need to understand this team or function before they can understand why this role exists? If yes → Option B ("Why We Exist" + "Why We're Hiring"). If no → Option A (single section). In both options, the role-specific content that follows the boilerplate must explicitly connect Jerry's mission to the specific gap this role fills and why it matters now. The reader should never feel whiplash between the boilerplate and the role-specific content.
 
 ---
 
@@ -288,7 +306,7 @@ Banned: "insurance companies prioritize profit over the customer"
 
 **Rule 28:** If Phase 1 / Phase 2 structure is used, check that no descriptive sub-heading appears within the phase. If one exists, delete it.
 
-**Rules 29 + 30:** Read the Hook. (a) Is every paragraph transition explicit — does each paragraph follow logically from the one before? (b) Does the Hook open with broader asset framing (car + home, or all physical assets) rather than car-only? If either fails, rewrite.
+**Rules 29 + 30:** Read the Hook. (a) Is every paragraph transition explicit — does each paragraph follow logically from the one before? (b) Do the first two paragraphs match the fixed boilerplate exactly, word for word? If not, rewrite to match. (c) Was the decision test applied — Option A if the role is self-explanatory, Option B ("Why We Exist" + "Why We're Hiring") if the candidate needs to understand the team or function first? If the wrong structure was used, fix it.
 
 **Rules 1–20, 22, 24:** Check mechanically. Fix every violation."""
 
